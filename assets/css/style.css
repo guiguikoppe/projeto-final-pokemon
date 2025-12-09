@@ -1,0 +1,224 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #f5f5f5;
+    --white: #ffffff;
+    --black: #111111;
+    --gray: #dcdcdc;
+    --gray-light: #f4f4f4;
+    --text: #2b2b2b;
+    --accent: #ffcb05; /* Amarelo Pokémon */
+
+    --radius: 14px;
+    --shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    --transition: 0.25s ease;
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* ================================================
+   HEADER (MODELO A - CLARO, PROFISSIONAL, LIMPO)
+================================================ */
+.top-header {
+    width: 100%;
+    background: var(--gray-light);
+    padding: 14px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--gray);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--black);
+}
+
+/* MENU DESKTOP */
+.menu {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+}
+
+.menu a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: var(--text);
+    padding: 8px 6px;
+    border-radius: var(--radius);
+    transition: var(--transition);
+}
+
+.menu a:hover {
+    background: var(--gray);
+}
+
+.menu a.active {
+    font-weight: 600;
+    background: var(--gray);
+}
+
+/* BOTÃO MOBILE */
+#menuBtn {
+    display: none;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+}
+
+/* ================================================
+   BANNER
+================================================ */
+.banner-home {
+    width: 100%;
+    height: 380px;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-home img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.55));
+}
+
+.banner-title {
+    position: absolute;
+    bottom: 30px;
+    left: 40px;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--white);
+}
+
+/* ================================================
+   BLOCOS DE CONTEÚDO
+================================================ */
+.content-block {
+    width: 90%;
+    max-width: 1100px;
+    margin: 50px auto;
+    background: var(--white);
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+/* ================================================
+   FOOTER
+================================================ */
+.footer {
+    background: var(--black);
+    color: var(--white);
+    padding: 50px 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+}
+
+.footer-title {
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.footer-item {
+    color: #e8e8e8;
+    text-decoration: none;
+    display: block;
+    margin: 6px 0;
+    transition: var(--transition);
+}
+
+.footer-item:hover {
+    color: var(--accent);
+}
+
+/* ================================================
+   BASE PARA O CARD HOLOGRÁFICO (A SER USADO NAS PÁGINAS)
+================================================ */
+.poke-card {
+    position: relative;
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    padding: 20px;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+/* brilho holográfico básico */
+.poke-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        45deg,
+        rgba(255, 0, 150, 0.25),
+        rgba(0, 200, 255, 0.25),
+        rgba(255, 255, 0, 0.25)
+    );
+    opacity: 0;
+    transition: 0.6s ease;
+    pointer-events: none;
+}
+
+.poke-card:hover::before {
+    opacity: 1;
+}
+
+/* ================================================
+   RESPONSIVIDADE
+================================================ */
+@media (max-width: 840px) {
+    .menu {
+        display: none;
+    }
+
+    #menuBtn {
+        display: block;
+    }
+}
+
+@media (max-width: 600px) {
+    .banner-title {
+        font-size: 1.6rem;
+        left: 20px;
+        bottom: 20px;
+    }
+
+    .content-block {
+        padding: 25px;
+    }
+}
