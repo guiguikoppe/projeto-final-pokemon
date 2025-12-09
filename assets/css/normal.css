@@ -40,6 +40,7 @@ body {
     position: relative;
     transition: .25s;
     box-shadow: 0 0 18px #0005;
+    text-align: center;
 }
 
 /* borda animada holográfica */
@@ -50,11 +51,11 @@ body {
     padding: 4px;
     border-radius: 14px;
     background: linear-gradient(125deg,
-        #ffdf00,
-        #ff00ee,
-        #00eaff,
-        #77ff00,
-        #ffae00);
+        #686868,
+        #9b9b9b,
+        #c5c5c5,
+        #e3e2e2,
+        #fffefe);
     background-size: 400% 400%;
     animation: brilho 6s infinite linear;
     z-index: -1;
@@ -123,6 +124,11 @@ body {
     font-size: 15px;
     border: 2px solid #e0e0e0;
     backdrop-filter: blur(4px);
+}
+
+.info-extra {
+    text-align: start;
+    margin-left: 15px;
 }
 
 .box-stats p {
