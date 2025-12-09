@@ -1,0 +1,278 @@
+/* --- Variáveis de Cores --- */
+:root {
+    --color-background-main: #f7d344; /* Fundo Claro/Creme */
+    --color-card-bg: #e1c14f; /* Amarelo Vibrante/Dourado dos Cards */
+    --color-card-border: #ffd700; /* Borda Dourada */
+    --color-text-dark: #333333; /* Texto Principal Escuro */
+    --color-text-light: #ffffff; /* Texto Claro (para fundo escuro) */
+    --color-header-bg: #ff9900; /* Laranja/Amarelo para o cabeçalho (opcional) */
+    --color-button-bg: #ffc90a; /* Amarelo do Botão */
+    --color-button-hover: #e5b800; /* Amarelo mais escuro para hover */
+    --color-shadow: rgba(0, 0, 0, 0.4); /* Sombra para profundidade */
+}
+
+/* --- Estilos Gerais e Fundo --- */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-background-main);
+    color: var(--color-text-dark);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* --- Layout Principal --- */
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Título Principal --- */
+#titulo {
+    font-size: 2.5em;
+    color: var(--color-text-dark);
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px var(--color-shadow);
+}
+
+.titulo-tipos {
+    display: none; /* Como o HTML tem apenas um tipo, podemos esconder esse título */
+}
+
+/* --- Container dos Cards --- */
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.grupo-tipo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+/* --- Card Individual --- */
+.card {
+    background-color: var(--color-card-bg);
+    border: 5px solid var(--color-card-border);
+    border-radius: 15px;
+    padding: 10px;
+    width: 200px; /* Largura base para 3 colunas em tela grande */
+    text-align: center;
+    box-shadow: 4px 4px 10px var(--color-shadow);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    overflow: hidden; /* Garante que o conteúdo não vaze */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 6px 6px 15px var(--color-shadow);
+}
+
+.card h4 {
+    /* Estilo para o número do Pokémon (opcional, se quiser incluir) */
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    font-size: 0.9em;
+    color: var(--color-text-dark);
+}
+
+.card img {
+    width: 100px; /* Tamanho da imagem */
+    height: 100px;
+    margin: 10px 0;
+    object-fit: contain;
+}
+
+.card h3 {
+    font-size: 1.2em;
+    text-transform: capitalize;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--color-text-dark);
+    font-weight: bold;
+}
+
+/* --- Informações Extras (Expandidas) --- */
+.info-extra {
+    padding-top: 10px;
+    border-top: 2px solid var(--color-text-dark);
+    margin-top: 10px;
+    text-align: left;
+    width: 100%;
+}
+
+.info-extra p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    padding: 0 10px;
+}
+
+.info-extra strong {
+    font-weight: bold;
+}
+
+/* --- Card Expandido (Para manter as dimensões da imagem) --- */
+.card.expandido {
+    width: 250px; /* Um pouco mais largo para acomodar o texto */
+    height: auto; /* Altura automática para mostrar o conteúdo extra */
+}
+
+/* --- Botão HOME --- */
+.button-electric {
+    display: block;
+    width: 150px;
+    margin: 30px auto;
+    padding: 10px 20px;
+    background-color: var(--color-button-bg);
+    color: var(--color-text-dark);
+    border: 3px solid var(--color-card-border);
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+    box-shadow: 2px 2px 5px var(--color-shadow);
+}
+
+.button-electric:hover {
+    background-color: var(--color-button-hover);
+    transform: translateY(-2px);
+}
+
+/* --- Media Queries para Responsividade --- */
+
+/* Telas maiores que 768px (Desktop/Tablet em paisagem) */
+@media (min-width: 768px) {
+    .card {
+        width: calc(33% - 20px); /* 3 cards por linha */
+        max-width: 250px;
+    }
+
+    .card.expandido {
+        width: calc(33% - 20px);
+        max-width: 300px;
+    }
+}
+
+/* Telas maiores que 1024px */
+@media (min-width: 1024px) {
+    .card {
+        width: calc(25% - 20px); /* 4 cards por linha (opcional) */
+        max-width: 250px;
+    }
+}
+
+/* Telas menores que 600px (Celular) */
+@media (max-width: 600px) {
+    .card {
+        width: 100%; /* 1 card por linha */
+        max-width: none;
+    }
+
+    .card.expandido {
+        width: 100%;
+        max-width: none;
+    }
+    
+    #titulo {
+        font-size: 2em;
+    }
+}
+
+/* --- Estilos do Modo Escuro (Dark Mode) --- */
+body.dark {
+    --color-background-main: #a0951e; /* Fundo Escuro */
+    --color-text-dark: #f0f0f0; /* Texto Claro */
+    --color-card-bg: #444400; /* Amarelo/Dourado Escuro */
+    --color-card-border: #ffd700; /* Borda Dourada (mantém vibrante) */
+    --color-shadow: rgba(255, 255, 255, 0.1); /* Sombra mais sutil */
+    --color-button-bg: #555555; /* Botão Escuro */
+    --color-button-hover: #666666; /* Botão Hover Escuro */
+}
+
+body.dark .card {
+    border-color: #ffd700;
+    box-shadow: 4px 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+body.dark .card:hover {
+    box-shadow: 6px 6px 15px rgba(255, 255, 255, 0.2);
+}
+
+body.dark .info-extra {
+    border-top: 2px solid #f0f0f0;
+}
+
+
+.top-header{
+  width:100%;
+  max-width:1200px;
+  margin:18px auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:14px 20px;
+  background:transparent;
+  border-radius:10px;
+  border:1px solid var(--header-border);
+  box-shadow: 0 6px 18px rgba(10,10,10,0.03);
+}
+
+.logo{
+  font-weight:700;
+  letter-spacing:1px;
+  font-size:1.2rem;
+  text-transform:uppercase;
+}
+
+/* NAV */
+nav .menu{
+  display:flex;
+  gap:20px;
+  list-style:none;
+  align-items:center;
+}
+
+nav .menu li a{
+  text-decoration:none;
+  color:var(--muted);
+  font-weight:600;
+  padding:8px 12px;
+  border-radius:8px;
+  transition: all .18s ease;
+}
+
+nav .menu li a:hover,
+nav .menu li a.active{
+  color:var(--text);
+  background: rgba(217,165,0,0.08);
+  box-shadow: 0 6px 12px rgba(217,165,0,0.06);
+}
+
+/* mobile menu button */
+#menuBtn{
+  display:none;
+  background:transparent;
+  border:none;
+  font-size:1.2rem;
+  cursor:pointer;
+  padding:6px 10px;
+}
+
+
