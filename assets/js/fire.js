@@ -35,9 +35,9 @@ async function criarCards() {
 
       card.innerHTML = `
 			<h4>#${det.id}</h4>
-			<img src="${det.sprites.front_default}">
-			<h3>${det.name}</h3>
-		      `;
+      <h3>${det.name}</h3>
+			<img src="${det.sprites.other["official-artwork"].front_default}">
+`;
       const infoExtra = document.createElement("div");
       infoExtra.classList.add("info-extra");
 
