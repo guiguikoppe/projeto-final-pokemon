@@ -76,6 +76,52 @@ body {
     font-size: 1.8rem;
     background: none;
     border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+}
+
+/* MENU MÓVEL */
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--gray-light);
+    border-bottom: 2px solid var(--gray);
+    z-index: 999;
+}
+
+.mobile-menu.active {
+    display: block;
+}
+
+.menu-mobile {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-mobile li {
+    border-bottom: 1px solid var(--gray);
+}
+
+.menu-mobile a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 1.1rem;
+    transition: var(--transition);
+}
+
+.menu-mobile a:hover {
+    background: var(--gray);
+}
+
+.menu-mobile a.active {
+    background: var(--gray);
+    font-weight: 600;
 }
 
 /* ================================================
@@ -199,7 +245,11 @@ body {
    RESPONSIVIDADE
 ================================================ */
 @media (max-width: 840px) {
-    .menu {
+    .top-header {
+        position: relative;
+    }
+
+    .nav-desktop {
         display: none;
     }
 
