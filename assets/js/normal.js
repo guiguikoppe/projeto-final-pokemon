@@ -42,8 +42,10 @@ async function criarCards() {
       const infoExtra = document.createElement("div");
       infoExtra.classList.add("info-extra");
 
-	  const attackStat = det.stats.find(stat => stat.stat.name === 'attack');
-	  const defenseStat = det.stats.find(stat => stat.stat.name === 'defense');
+      const attackStat = det.stats.find((stat) => stat.stat.name === "attack");
+      const defenseStat = det.stats.find(
+        (stat) => stat.stat.name === "defense"
+      );
 
       // exemplo de informações extras
       infoExtra.innerHTML = `
@@ -55,19 +57,35 @@ async function criarCards() {
     <p><strong>Habilidades:</strong> ${det.abilities
       .map((a) => a.ability.name)
       .join(", ")}</p>
-	  <p><strong>Força do Ataque:</strong> ${attackStat ? attackStat.base_stat : 'N/A'}</p>
-	  <p><strong>Força da Defesa:</strong> ${defenseStat ? defenseStat.base_stat : 'N/A'}</p>
+${attackStat ? `<div class="barra">
+  <span>Ataque</span>
+  <div class="progress">
+    <div class="fill" style="width: ${attackStat.base_stat}%;">
+      ${attackStat.base_stat}%  
+    </div>
+  </div>
+</div>` : ""}
+
+${defenseStat ? `<div class="barra">
+  <span>Defesa</span>
+  <div class="progress">
+    <div class="fill" style="width: ${defenseStat.base_stat}%;">
+      ${defenseStat.base_stat}%
+    </div>
+  </div>
+</div>` : ""}
+
 
 `;
 
       infoExtra.style.display = "none"; // começa escondido
       card.appendChild(infoExtra);
 
-      // quando clicar no card, alterna a exibição
-      card.addEventListener("click", () => {
-        const aberto = card.classList.toggle("expandido");
-        infoExtra.style.display = aberto ? "block" : "none";
-      });
+        // quando clicar no card, alterna a exibição
+        card.addEventListener("click", () => {
+          const aberto = card.classList.toggle("expandido");
+          infoExtra.style.display = aberto ? "block" : "none";
+        });
 
       area.appendChild(card);
     }
@@ -84,21 +102,21 @@ const botao = document.getElementById("tema-btn");
 
 // verifica se o usuário já escolheu um tema antes
 if (localStorage.getItem("tema") === "escuro") {
-    document.body.classList.add("dark");
-    botao.textContent = "☀️ Modo Claro";
+  document.body.classList.add("dark");
+  botao.textContent = "☀️ Modo Claro";
 }
 
 // clique para trocar o tema
 botao.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
+  document.body.classList.toggle("dark");
 
-    const modoEscuroAtivo = document.body.classList.contains("dark");
+  const modoEscuroAtivo = document.body.classList.contains("dark");
 
-    if (modoEscuroAtivo) {
-        botao.textContent = "☀️ Modo Claro";
-        localStorage.setItem("tema", "escuro");
-    } else {
-        botao.textContent = "🌙 Modo Escuro";
-        localStorage.setItem("tema", "claro");
-    }
+  if (modoEscuroAtivo) {
+    botao.textContent = "☀️ Modo Claro";
+    localStorage.setItem("tema", "escuro");
+  } else {
+    botao.textContent = "🌙 Modo Escuro";
+    localStorage.setItem("tema", "claro");
+  }
 });
