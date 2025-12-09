@@ -18,6 +18,15 @@ body {
     margin: 40px auto;
 
 }
+.container h2 {
+    font-size: 100px;
+    font-weight: 900;
+    background: linear-gradient(90deg, #000000,#a9a9a9,#dedcdc, #ffffff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+     font-family: "Jersey 20", sans-serif;
+}
 
 .grupo-tipo {
      margin-top: 20px;
@@ -26,6 +35,8 @@ body {
     gap: 35px;
     justify-items: center;
 }
+
+
 
 /* ----------------------------------------------- */
 /*       ⚡ EFEITO HOLOGRÁFICO DO CARD ⚡          */
@@ -269,8 +280,7 @@ body {
 }
 
 .pokemon-img {
-    width: 220px;
-    height: 220px;
+    width: 80%;
     object-fit: contain;
     filter: drop-shadow(0 0 10px #0005);
     margin-bottom: 10px;
@@ -347,8 +357,8 @@ body {
 }
 
 .oak-img {
-    width: 85%;
-    max-height: 400px;
+    width: 600%;
+    max-height: 650px;
     object-fit: contain;
-    filter: drop-shadow(0 0 10px #000);
+  
 }
