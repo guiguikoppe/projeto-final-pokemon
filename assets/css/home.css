@@ -1,0 +1,204 @@
+:root{
+  --accent: #d9a500;
+  --text: #222;
+  --muted: #666;
+  --bg: #ffffff;
+  --header-border: #e6e6e6;
+}
+
+/* RESET */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family: "Poppins", Arial, sans-serif;
+  background: linear-gradient(180deg,#fff 0%, #fbfbfb 100%);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
+}
+
+/* ========== HEADER ========== */
+.top-header{
+  width:100%;
+  max-width:1200px;
+  margin:18px auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:14px 20px;
+  background:transparent;
+  border-radius:10px;
+  border:1px solid var(--header-border);
+  box-shadow: 0 6px 18px rgba(10,10,10,0.03);
+}
+
+.logo{
+  font-weight:700;
+  letter-spacing:1px;
+  font-size:1.2rem;
+  text-transform:uppercase;
+}
+
+/* NAV */
+nav .menu{
+  display:flex;
+  gap:20px;
+  list-style:none;
+  align-items:center;
+}
+
+nav .menu li a{
+  text-decoration:none;
+  color:var(--muted);
+  font-weight:600;
+  padding:8px 12px;
+  border-radius:8px;
+  transition: all .18s ease;
+}
+
+nav .menu li a:hover,
+nav .menu li a.active{
+  color:var(--text);
+  background: rgba(217,165,0,0.08);
+  box-shadow: 0 6px 12px rgba(217,165,0,0.06);
+}
+
+/* mobile menu button */
+#menuBtn{
+  display:none;
+  background:transparent;
+  border:none;
+  font-size:1.2rem;
+  cursor:pointer;
+  padding:6px 10px;
+}
+
+/* ========== BANNER ========== */
+.banner-home{
+  width:100%;
+  max-width:1100px;
+  margin:20px auto 8px;
+  text-align:center;
+  position:relative;
+  padding:18px;
+}
+
+.banner-home img{
+  width:100%;
+  max-height:360px;
+  object-fit:cover;
+  border-radius:14px;
+  display:block;
+  margin:0 auto;
+  border: 6px solid rgba(0,0,0,0.03);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+}
+
+/* overlay light effect */
+.banner-overlay{
+  position:absolute;
+  left:50%;
+  top:40%;
+  transform:translate(-50%,-50%);
+  width:94%;
+  height:60%;
+  pointer-events:none;
+  border-radius:12px;
+  mix-blend-mode:overlay;
+}
+
+/* banner title */
+.banner-title{
+  margin-top:16px;
+  font-size:1.1rem;
+  letter-spacing:2px;
+  color:var(--muted);
+  text-transform:uppercase;
+  font-weight:600;
+}
+
+/* ========== CONTENT BLOCKS ========== */
+.content-block{
+  width:100%;
+  max-width:920px;
+  margin:34px auto;
+  padding:26px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.98));
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,0.04);
+  box-shadow: 0 8px 20px rgba(10,10,10,0.02);
+  text-align:left;
+}
+
+.section-title{
+  color:var(--accent);
+  font-size:1.8rem;
+  margin-bottom:12px;
+  font-weight:700;
+}
+
+.content-block p{
+  color:var(--muted);
+  font-size:1rem;
+  margin-bottom:12px;
+  line-height:1.6;
+}
+
+/* ========== FOOTER ========== */
+.footer{
+  width:100%;
+  max-width:1200px;
+  margin:36px auto 60px;
+  padding:26px;
+  display:flex;
+  gap:20px;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  border-radius:10px;
+  border:1px solid rgba(0,0,0,0.04);
+  background:linear-gradient(180deg,#fafafa,#fff);
+}
+
+.footer-box{min-width:160px}
+.footer-title{font-weight:700;margin-bottom:8px}
+.footer-text, .footer-item{color:var(--muted);font-size:0.95rem;margin:6px 0; text-decoration:none}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 900px){
+  .top-header{padding:12px}
+  nav .menu{gap:12px}
+  .banner-home img{max-height:260px}
+  .content-block{padding:18px;margin:20px 16px}
+  .footer{padding:18px;margin:20px 16px}
+}
+
+/* MOBILE: transform menu into toggle */
+@media (max-width: 720px){
+  #menuBtn{display:block}
+  nav .menu{
+    position:fixed;
+    right:16px;
+    top:76px;
+    flex-direction:column;
+    gap:8px;
+    background:#fff;
+    padding:12px;
+    border-radius:10px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.12);
+    display:none;
+    z-index:60;
+  }
+  nav .menu.show{display:flex}
+  /* center content spacing */
+  .top-header{flex-direction:row;align-items:center}
+  .banner-home img{border-radius:10px}
+}
+
+/* small tweaks for very small screens */
+@media (max-width:420px){
+  .logo{font-size:1rem}
+  .banner-title{font-size:0.95rem}
+  .section-title{font-size:1.4rem}
+}
