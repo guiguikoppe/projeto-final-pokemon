@@ -1,7 +1,6 @@
 async function criarCards() {
   const container = document.getElementById("container");
 
-  //rocha, fantasma, dragao e aço -> tipos
   const tipos = ["normal"];
 
   for (const tipo of tipos) {
@@ -57,23 +56,31 @@ async function criarCards() {
     <p><strong>Habilidades:</strong> ${det.abilities
       .map((a) => a.ability.name)
       .join(", ")}</p>
-${attackStat ? `<div class="barra">
+${
+  attackStat
+    ? `<div class="barra">
   <span>Ataque</span>
   <div class="progress">
     <div class="fill" style="width: ${attackStat.base_stat}%;">
       ${attackStat.base_stat}%  
     </div>
   </div>
-</div>` : ""}
+</div>`
+    : ""
+}
 
-${defenseStat ? `<div class="barra">
+${
+  defenseStat
+    ? `<div class="barra">
   <span>Defesa</span>
   <div class="progress">
     <div class="fill" style="width: ${defenseStat.base_stat}%;">
       ${defenseStat.base_stat}%
     </div>
   </div>
-</div>` : ""}
+</div>`
+    : ""
+}
 
 
 `;
@@ -81,11 +88,7 @@ ${defenseStat ? `<div class="barra">
       infoExtra.style.display = "none"; // começa escondido
       card.appendChild(infoExtra);
 
-        // quando clicar no card, alterna a exibição
-        card.addEventListener("click", () => {
-          const aberto = card.classList.toggle("expandido");
-          infoExtra.style.display = aberto ? "block" : "none";
-        });
+      card.addEventListener("click", () => abrirModal(det));
 
       area.appendChild(card);
     }
@@ -96,6 +99,94 @@ ${defenseStat ? `<div class="barra">
 
 // executa assim que a pagina carregar
 criarCards();
+// ======== ELEMENTOS DO MODAL ========
+const modal = document.getElementById("modal");
+const fecharModal = document.getElementById("fechar");
+const modalImg = document.getElementById("modal-img");
+const modalNome = document.getElementById("modal-nome");
+const modalInfo = document.getElementById("modal-info");
+
+// ======== FUNÇÃO PARA ABRIR O MODAL =========
+function abrirModal(det) {
+  modal.style.display = "flex";
+
+  modalImg.src = det.sprites.front_default;
+  modalNome.textContent = det.name.toUpperCase();
+
+  const attackStat = det.stats.find((stat) => stat.stat.name === "attack");
+  const defenseStat = det.stats.find((stat) => stat.stat.name === "defense");
+  const speedStat = det.stats.find((stat) => stat.stat.name === "speed");
+
+  modalInfo.innerHTML = `
+    <div class="modal-stat">
+      <p><strong>ID:</strong> #${det.id}</p>
+      <p><strong>Altura:</strong> ${det.height / 10} m</p>
+      <p><strong>Peso:</strong> ${det.weight / 10} kg</p>
+    </div>
+
+    <div class="modal-stat">
+      <p><strong>Tipos:</strong> ${det.types
+        .map((t) => t.type.name)
+        .join(", ")}</p>
+      <p><strong>Habilidades:</strong> ${det.abilities
+        .map((a) => a.ability.name)
+        .join(", ")}</p>
+    </div>
+
+    ${
+      attackStat
+        ? `<div class="modal-barra">
+      <span>Ataque</span>
+      <div class="progress-modal">
+        <div class="fill-modal" style="width: ${
+          (attackStat.base_stat / 255) * 100
+        }%;">
+          ${attackStat.base_stat}
+        </div>
+      </div>
+    </div>`
+        : ""
+    }
+
+    ${
+      defenseStat
+        ? `<div class="modal-barra">
+      <span>Defesa</span>
+      <div class="progress-modal">
+        <div class="fill-modal" style="width: ${
+          (defenseStat.base_stat / 255) * 100
+        }%;">
+          ${defenseStat.base_stat}
+        </div>
+      </div>
+    </div>`
+        : ""
+    }
+
+    ${
+      speedStat
+        ? `<div class="modal-barra">
+      <span>Velocidade</span>
+      <div class="progress-modal">
+        <div class="fill-modal" style="width: ${
+          (speedStat.base_stat / 255) * 100
+        }%;">
+          ${speedStat.base_stat}
+        </div>
+      </div>
+    </div>`
+        : ""
+    }
+  `;
+}
+
+// ======== FECHAR O MODAL =========
+fecharModal.addEventListener("click", () => (modal.style.display = "none"));
+
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) modal.style.display = "none";
+});
+
 //Não mexer abaixo é apenas o codigo de claro e escuro---->
 // botão
 const botao = document.getElementById("tema-btn");
