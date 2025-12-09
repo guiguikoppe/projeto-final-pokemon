@@ -1,0 +1,358 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ---------------- BACKGROUND GERAL ---------------- */
+body {
+    background: url("https://i.imgur.com/cAZuU02.png");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* ---------------- CONTAINER DE CARDS ---------------- */
+.container {
+    max-width: 1300px;   
+    margin: 40px auto;
+
+}
+.container h2 {
+    font-size: 100px;
+    font-weight: 900;
+    background: linear-gradient(90deg, #023f89,#0259c4,#89bdfd,#6eafff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+     font-family: "Jersey 20", sans-serif;
+}
+
+.grupo-tipo {
+     margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 35px;
+    justify-items: center;
+}
+
+/* ----------------------------------------------- */
+/*       ⚡ EFEITO HOLOGRÁFICO DO CARD ⚡          */
+/* ----------------------------------------------- */
+.card {
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1; /* card acima */
+    max-width: 350px;
+}
+
+.card h3 {
+    text-transform: uppercase;
+    font-weight: 700;   /* bold */
+    font-size: 24px;
+    letter-spacing: 0.6px;
+    margin: 8px 0;
+}
+/* BORDA HOLOGRÁFICA PERMANENTE */
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 4px;
+    border-radius: 14px;
+
+    background: linear-gradient(125deg,
+       #023f89,#0259c4,#89bdfd,#6eafff);
+
+
+    background-size: 900% 900%;
+    animation: brilho 4s infinite linear;
+    z-index: -2; /* sempre atrás */
+}
+
+/* FUNDO FOIL PERMANENTE */
+.card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 10px;
+
+    background: url("https://i.imgur.com/lk3vOVC.png");
+    background-size: cover;
+    mix-blend-mode: lighten;
+    opacity: 0.3;
+
+    z-index: -1;
+}
+
+@keyframes brilho {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* zoom ao passar o mouse */
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* ------------------------ TOPO DO CARD ------------------------ */
+.card-topo {
+    background: #dcdcdcdd;
+    padding: 10px 14px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 15px;
+    border-bottom: 2px solid #cfcfcf;
+}
+
+/* ------------------------ IMAGEM ------------------------ */
+.card img {
+    width: 92%;
+    border-radius: 12px;
+    margin: 14px auto;
+    display: block;
+    box-shadow: 0 0 12px #0003;
+}
+
+/* ------------------------ NOME ------------------------ */
+.nome {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: 900;
+}
+
+/* ------------------------ CAIXA DE INFORMAÇÕES ------------------------ */
+.box-stats {
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin: 8px auto;
+    width: 85%;
+    font-size: 15px;
+    border: 2px solid #e0e0e0;
+    backdrop-filter: blur(4px);
+}
+
+.info-extra {
+    text-align: start;
+    margin-left: 15px;
+}
+
+.box-stats p {
+    margin: 4px 0;
+}
+
+/* ------------------------ ATK / DEF ESTILO TCG ------------------------ */
+.box-batalha {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 14px auto;
+    padding: 10px;
+    width: 85%;
+    border-radius: 10px;
+    border: 2px solid #ffd700;
+    background: linear-gradient(135deg, #fff2b3, #ffe98c);
+    box-shadow: inset 0 0 12px #ffdf00aa;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat span {
+    font-size: 14px;
+    opacity: .7;
+}
+
+.stat strong {
+    font-size: 22px;
+    font-weight: bold;
+    display: block;
+    margin-top: 2px;
+}
+/* ------------------------ BARRAS DE STATUS ------------------------ */
+
+.barra {
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.barra span {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.progress {
+    position: relative;
+    width: 100%;
+    height: 22px;
+    background: rgba(255, 255, 255, 0.45);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #d7d7d7;
+    backdrop-filter: blur(4px);
+}
+
+.fill {
+    height: 100%;
+    background: linear-gradient(90deg, #b5b4b4, #7b7b7b);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 0 4px #000;
+    transition: width 0.4s ease;
+}
+
+
+.card.expandido {
+    overflow: visible;
+    width: 290px !important;
+    min-height: auto;
+    height: auto !important;
+}
+    
+/* ======================= MODAL ======================= */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.65);
+    display: none; /* começa oculto */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background: #ffffffee;
+    width: 80%;
+    max-width: 900px;
+    min-height: 350px;
+    padding: 20px;
+    border-radius: 16px;
+    display: flex;
+    gap: 25px;
+    position: relative;
+    box-shadow: 0 0 20px #0005;
+}
+
+/* ======================= FECHAR ======================= */
+.fechar {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    z-index: 99999;
+}
+
+.fechar:hover {
+    color: red;
+}
+
+/* ======================= COLUNA ESQUERDA ======================= */
+.modal-esquerda {
+    width: 40%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pokemon-img {
+    width: 80%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px #0005);
+    margin-bottom: 10px;
+}
+
+#modal-nome {
+    margin-top: 10px;
+    font-size: 28px;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+#modal-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.modal-stat {
+    background: rgba(200, 200, 200, 0.4);
+    padding: 10px 12px;
+    border-radius: 8px;
+    border-left: 4px solid #333;
+}
+
+.modal-stat p {
+    font-size: 14px;
+    margin: 4px 0;
+    line-height: 1.4;
+}
+
+.modal-barra {
+    margin: 8px 0;
+    font-size: 13px;
+}
+
+.modal-barra span {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.progress-modal {
+    position: relative;
+    width: 100%;
+    height: 20px;
+    background: rgba(200, 200, 200, 0.5);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+}
+
+.fill-modal {
+    height: 100%;
+    background: linear-gradient(90deg, #ff6b6b, #ff8e72);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 0 3px #000;
+    transition: width 0.4s ease;
+}
+
+/* ======================= COLUNA DIREITA (OAK) ======================= */
+.modal-direita {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.oak-img {
+    width: 600%;
+    max-height: 650px;
+    object-fit: contain;
+  
+}

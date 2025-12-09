@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>fire-page</title>
-    <link rel="stylesheet" href="../assets/css/fire.css">
+    <link rel="stylesheet" href="../assets/css/fogo.css">
 <link rel="stylesheet" href="../assets/css/style.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Jersey+20&display=swap');
+</style>
 </head>
 
-<body>
-   <header class="top-header">
-        <h1 class="logo">Pokédex Pro</h1>
+<header class="top-header">
+       <img src ="../assets/imgs/logo.png" alt="Logo" class="logo-img">
 
-         <nav>
+        <nav>
             <ul class="menu">
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="fogo.html">Fogo</a></li>
@@ -26,6 +28,30 @@
     </header>
     
      <div id="container" class="container"></div>
+
+  <!-- ========= MODAL ========= -->
+<div id="modal" class="modal">
+    
+    <div class="modal-content">
+
+        <span id="fechar" class="fechar">✖</span>
+
+        <!-- Esquerda (Pokémon info) -->
+        <div class="modal-esquerda">
+            <img id="modal-img" class="pokemon-img">
+            <h2 id="modal-nome"></h2>
+
+            <div id="modal-info"></div>
+        </div>
+
+        <!-- Direita (Professor Oak) -->
+<div class="modal-direita">
+      <img src="../assets/imgs/Design sem nome.png" class="oak-img">
+    </div>
+
+  </div>
+
+</div>
 
     <script src="../assets/js/fire.js"></script>
 </body>

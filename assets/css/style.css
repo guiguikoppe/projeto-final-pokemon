@@ -30,21 +30,20 @@ body {
 .top-header {
     width: 100%;
     background: var(--gray-light);
-    padding: 14px 40px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     border-bottom: 2px solid var(--gray);
-    position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-.logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--black);
+.top-header img{
+    width: 300px;
+    height: auto;
 }
+
+
 
 /* MENU DESKTOP */
 .menu {
@@ -55,7 +54,7 @@ body {
 
 .menu a {
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: var(--text);
     padding: 8px 6px;
     border-radius: var(--radius);
