@@ -7,10 +7,13 @@
 
 /* ---------------- BACKGROUND GERAL ---------------- */
 body {
-    background: url("https://i.imgur.com/cAZuU02.png");
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), /* deixa mais suave */
+        url(../imgs/raio.png);
     background-size: cover;
     background-attachment: fixed;
 }
+
 
 /* ---------------- CONTAINER DE CARDS ---------------- */
 .container {

@@ -7,9 +7,10 @@
 
 /* ---------------- BACKGROUND GERAL ---------------- */
 body {
-    background: url("https://i.imgur.com/cAZuU02.png");
+    background-image: url(../imgs/agua.png);
     background-size: cover;
     background-attachment: fixed;
+    
 }
 
 /* ---------------- CONTAINER DE CARDS ---------------- */
