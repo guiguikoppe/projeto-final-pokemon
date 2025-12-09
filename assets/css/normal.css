@@ -14,7 +14,7 @@ body {
 
 /* ---------------- CONTAINER DE CARDS ---------------- */
 .container {
-    max-width: 1300px;
+    max-width: 1300px;   
     margin: 40px auto;
 
 }
@@ -212,4 +212,143 @@ body {
     width: 290px !important;
     min-height: auto;
     height: auto !important;
+}
+    
+/* ======================= MODAL ======================= */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.65);
+    display: none; /* começa oculto */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background: #ffffffee;
+    width: 80%;
+    max-width: 900px;
+    min-height: 350px;
+    padding: 20px;
+    border-radius: 16px;
+    display: flex;
+    gap: 25px;
+    position: relative;
+    box-shadow: 0 0 20px #0005;
+}
+
+/* ======================= FECHAR ======================= */
+.fechar {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    z-index: 99999;
+}
+
+.fechar:hover {
+    color: red;
+}
+
+/* ======================= COLUNA ESQUERDA ======================= */
+.modal-esquerda {
+    width: 40%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pokemon-img {
+    width: 220px;
+    height: 220px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px #0005);
+    margin-bottom: 10px;
+}
+
+#modal-nome {
+    margin-top: 10px;
+    font-size: 28px;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+#modal-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.modal-stat {
+    background: rgba(200, 200, 200, 0.4);
+    padding: 10px 12px;
+    border-radius: 8px;
+    border-left: 4px solid #333;
+}
+
+.modal-stat p {
+    font-size: 14px;
+    margin: 4px 0;
+    line-height: 1.4;
+}
+
+.modal-barra {
+    margin: 8px 0;
+    font-size: 13px;
+}
+
+.modal-barra span {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.progress-modal {
+    position: relative;
+    width: 100%;
+    height: 20px;
+    background: rgba(200, 200, 200, 0.5);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+}
+
+.fill-modal {
+    height: 100%;
+    background: linear-gradient(90deg, #ff6b6b, #ff8e72);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 0 3px #000;
+    transition: width 0.4s ease;
+}
+
+/* ======================= COLUNA DIREITA (OAK) ======================= */
+.modal-direita {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.oak-img {
+    width: 85%;
+    max-height: 400px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px #000);
 }
