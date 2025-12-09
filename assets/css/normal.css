@@ -16,10 +16,11 @@ body {
 .container {
     max-width: 1300px;
     margin: 40px auto;
-    padding: 20px;
+
 }
 
 .grupo-tipo {
+     margin-top: 20px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
     gap: 35px;
@@ -29,56 +30,61 @@ body {
 /* ----------------------------------------------- */
 /*       ⚡ EFEITO HOLOGRÁFICO DO CARD ⚡          */
 /* ----------------------------------------------- */
-
 .card {
-    width: 290px;
-    padding-bottom: 15px;
-    border-radius: 14px;
-    overflow: hidden;
-    background: #ffffffee;
-    border: 4px solid transparent;
-    position: relative;
-    transition: .25s;
-    box-shadow: 0 0 18px #0005;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1; /* card acima */
+    max-width: 350px;
 }
 
-/* borda animada holográfica */
+.card h3 {
+    text-transform: uppercase;
+    font-weight: 700;   /* bold */
+    font-size: 24px;
+    letter-spacing: 0.6px;
+    margin: 8px 0;
+}
+/* BORDA HOLOGRÁFICA PERMANENTE */
 .card::before {
     content: "";
     position: absolute;
     inset: 0;
     padding: 4px;
     border-radius: 14px;
+
     background: linear-gradient(125deg,
         #686868,
         #9b9b9b,
         #c5c5c5,
         #e3e2e2,
         #fffefe);
-    background-size: 400% 400%;
-    animation: brilho 6s infinite linear;
-    z-index: -1;
+
+
+    background-size: 900% 900%;
+    animation: brilho 4s infinite linear;
+    z-index: -2; /* sempre atrás */
 }
 
-/* faz a borda "andar" igual foil */
-@keyframes brilho {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-/* fundo do card com textura holográfica */
+/* FUNDO FOIL PERMANENTE */
 .card::after {
     content: "";
     position: absolute;
     inset: 0;
-    z-index: -1;
     border-radius: 10px;
+
     background: url("https://i.imgur.com/lk3vOVC.png");
     background-size: cover;
-    opacity: 0.22;
     mix-blend-mode: lighten;
+    opacity: 0.3;
+
+    z-index: -1;
+}
+
+@keyframes brilho {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* zoom ao passar o mouse */
