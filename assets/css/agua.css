@@ -410,12 +410,19 @@ body {
     .modal-esquerda, .modal-direita {
         width: 100%;
     }
-    .oak-img {
-        width: 100%;
-        max-height: none;
-    }
-
-    .container h2 {
+ .container h2 {
         font-size: 60px;
     }
+     .oak-img {
+        width: 30%;
+        max-height: none;
+    }
 }
+
+@media (max-width: 480px) {
+
+  .oak-img {
+        width: 30%;
+        max-height: none;
+    }
+}   
