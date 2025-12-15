@@ -15,11 +15,18 @@ body.dark {
     --text: #e8e8e8;
 }
 
+body.dark{
+    background: black;
+}
 
 body.dark .card {
     background: var(--white);
 }
 
+body.dark .footer{
+    background: black;
+    border: var(--gray) 3px solid;
+}
 
 body.dark .modal-content {
     background: var(--white);
@@ -41,6 +48,9 @@ body.dark #modal-nome {
     color: var(--text);
 }
 
+body.dark .banner-title{
+  color: white;
+}
 
 /* RESET */
 *{box-sizing:border-box;margin:0;padding:0}
