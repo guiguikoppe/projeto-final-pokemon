@@ -135,12 +135,7 @@ body.dark #modal-nome {
     inset: 0;
     border-radius: 10px;
 
-    background: url("https://i.imgur.com/lk3vOVC.png");
-    background-size: cover;
-    mix-blend-mode: lighten;
-    opacity: 0.3;
-
-    z-index: -1;
+ 
 }
 
 @keyframes brilho {
