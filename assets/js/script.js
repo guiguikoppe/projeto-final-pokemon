@@ -53,7 +53,7 @@ if (temaBtnMobile) {
 async function criarCards() {
   const container = document.getElementById("container");
 
-  //rocha, fantasma, dragao e aço -> tipos
+  //normal, fogo, água e elétrico -> tipos
   const tipos = ["normal", "fire", "water", "electric"];
 
   for (const tipo of tipos) {

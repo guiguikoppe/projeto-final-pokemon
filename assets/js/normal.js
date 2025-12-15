@@ -99,7 +99,7 @@ ${
 
 // executa assim que a pagina carregar
 criarCards();
-// ======== MENU HAMBÚRGUER =========
+// ======== ELEMENTOS DO MODAL ========
 const menuBtn = document.getElementById("menuBtn");
 const mobileMenu = document.getElementById("mobileMenu");
 
