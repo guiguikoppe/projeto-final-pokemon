@@ -16,7 +16,7 @@ body.dark {
 
 
 body.dark .card {
-    background: transparent;
+    background: var(--white);
 }
 
 
@@ -43,14 +43,9 @@ body.dark #modal-nome {
 
 /* ---------------- BACKGROUND GERAL ---------------- */
 body {
-background: linear-gradient(
-  145deg,
-  #fff3e0 0%,   
-  #ffb74d 35%,  
-  #e65100 75%,  
-  #3b0a00 100%  
-);
- 
+    background-image: url("../imgs/incendio.png");
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 /* ---------------- CONTAINER DE CARDS ---------------- */
@@ -66,9 +61,7 @@ background: linear-gradient(
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-     font-family: "Sekuya", system-ui;
-  font-weight: 400;
-  font-style: normal;
+     font-family: "Jersey 20", sans-serif;
 }
 
 .grupo-tipo {
@@ -96,7 +89,6 @@ background: linear-gradient(
     font-size: 24px;
     letter-spacing: 0.6px;
     margin: 8px 0;
-       font-family: "Jersey 20", sans-serif;
 }
 /* BORDA HOLOGRÁFICA PERMANENTE */
 .card::before {
@@ -399,23 +391,4 @@ background: linear-gradient(
     max-height: 650px;
     object-fit: contain;
   
-}
-
-@media (max-width: 768px) {
-    .modal-content {
-        flex-direction: column;
-        width: 90%;
-        height: auto;
-    }
-    .modal-esquerda, .modal-direita {
-        width: 100%;
-    }
-    .oak-img {
-        width: 100%;
-        max-height: none;
-    }
-
-    .container h2 {
-        font-size: 60px;
-    }
 }

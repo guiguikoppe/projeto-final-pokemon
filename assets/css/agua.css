@@ -44,12 +44,13 @@ body.dark #modal-nome {
 /* ---------------- BACKGROUND GERAL ---------------- */
 body {
     background: linear-gradient(
-  145deg,
-  #f0fbff 0%,   /* quase branco azulado */
-  #81d4fa 35%,  /* azul claro */
-  #0288d1 75%,  /* azul profundo */
-  #00334e 100%  /* azul escuro oceano */
-);
+        145deg,
+        #f0fbff 0%,
+        #81d4fa 35%,
+        #0288d1 75%,
+        #00334e 100%
+    );
+
 }
 
 /* ---------------- CONTAINER DE CARDS ---------------- */
