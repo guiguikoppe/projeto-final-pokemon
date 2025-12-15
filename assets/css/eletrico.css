@@ -46,10 +46,10 @@ body.dark #modal-nome {
 body {
   background: linear-gradient(
   145deg,
-  #fffde7 0%,   /* amarelo quase branco */
-  #fff176 35%,  /* amarelo vivo */
-  #fbc02d 75%,  /* amarelo elétrico escuro */
-  #5d4a00 100%  /* dourado escuro / profundo */
+  #fffde7 0%, 
+  #fff176 35%, 
+  #fbc02d 75%, 
+  #5d4a00 100%  
 );
  
 }
@@ -108,7 +108,10 @@ body {
     border-radius: 14px;
 
     background: linear-gradient(125deg,
-        #fff200, #f6eb2a, #fcf45c,  #fffa9c);
+         #fffde7 0%,  
+  #fff176 35%, 
+  #fbc02d 75%,  
+  #5d4a00 100% ); 
 
 
     background-size: 900% 900%;
