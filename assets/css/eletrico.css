@@ -15,8 +15,9 @@ body.dark {
 
 
 body.dark .card {
-    background: var(--white);
+    background: transparent;
 }
+
 
 
 body.dark .modal-content {
@@ -43,9 +44,14 @@ body.dark #modal-nome {
 
 /* ---------------- BACKGROUND GERAL ---------------- */
 body {
-    background-image: url("../imgs/choque.png");
-    background-size: cover;
-    background-attachment: fixed;
+  background: linear-gradient(
+  145deg,
+  #fffde7 0%,   /* amarelo quase branco */
+  #fff176 35%,  /* amarelo vivo */
+  #fbc02d 75%,  /* amarelo elétrico escuro */
+  #5d4a00 100%  /* dourado escuro / profundo */
+);
+ 
 }
 
 /* ---------------- CONTAINER DE CARDS ---------------- */
@@ -57,11 +63,13 @@ body {
 .container h2 {
     font-size: 100px;
     font-weight: 900;
-    background: linear-gradient(90deg, #fff200, #f6eb2a, #fcf45c,  #fffa9c);
+    background: linear-gradient(90deg, #c38c01, #d2c700, #fff315,  #fff644);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-     font-family: "Jersey 20", sans-serif;
+ font-family: "Sekuya", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .grupo-tipo {
@@ -89,6 +97,7 @@ body {
     font-size: 24px;
     letter-spacing: 0.6px;
     margin: 8px 0;
+       font-family: "Jersey 20", sans-serif;
 }
 /* BORDA HOLOGRÁFICA PERMANENTE */
 .card::before {
@@ -391,4 +400,23 @@ body {
     max-height: 650px;
     object-fit: contain;
   
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+    }
+    .modal-esquerda, .modal-direita {
+        width: 100%;
+    }
+    .oak-img {
+        width: 100%;
+        max-height: none;
+    }
+
+    .container h2 {
+        font-size: 60px;
+    }
 }

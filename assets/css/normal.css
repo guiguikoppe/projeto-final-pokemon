@@ -7,9 +7,15 @@
 
 /* ---------------- BACKGROUND GERAL ---------------- */
 body {
-    background-image: url("../imgs/normal.png");
-    background-size: cover;
-    background-attachment: fixed;
+background: linear-gradient(
+  145deg,
+    #ffffff 0%,
+     #cfcfcf 35%,
+     #2a2a2a 75%,
+  #000000 100%
+ 
+);
+   
 }
 /* ======================= MODO ESCURO ======================= */
 body.dark {
@@ -23,7 +29,7 @@ body.dark {
 
 
 body.dark .card {
-    background: var(--white);
+    background: transparent;
 }
 
 
@@ -57,11 +63,13 @@ body.dark #modal-nome {
 .container h2 {
     font-size: 100px;
     font-weight: 900;
-    background: linear-gradient(90deg, #dcdada,#c5c3c3,#fbfbfb, #ffffff);
+    background: linear-gradient(90deg, #000000,#c1c0c0,#fbfbfb, #ffffff);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-     font-family: "Jersey 20", sans-serif;
+ font-family: "Sekuya", system-ui;
+  font-weight: 400;
+  font-style: normal;
      
 }
 
@@ -74,6 +82,8 @@ body.dark #modal-nome {
 }
 
 
+
+
 /* ----------------------------------------------- */
 /*       ⚡ EFEITO HOLOGRÁFICO DO CARD ⚡          */
 /* ----------------------------------------------- */
@@ -82,15 +92,20 @@ body.dark #modal-nome {
     position: relative;
     overflow: hidden;
     z-index: 1; /* card acima */
-    max-width: 350px;
+    text-align: left;
 }
-
+.card h4{
+    margin-left: 5%;
+}
 .card h3 {
     text-transform: uppercase;
     font-weight: 700;   /* bold */
-    font-size: 24px;
+    font-size: 40px;
     letter-spacing: 0.6px;
     margin: 8px 0;
+      font-family: "Jersey 20", sans-serif;
+      text-align: center;
+     
 }
 /* BORDA HOLOGRÁFICA PERMANENTE */
 .card::before {
@@ -274,8 +289,14 @@ body.dark #modal-nome {
     align-items: center;
     z-index: 9999;
     backdrop-filter: blur(4px);
+
 }
 
+.modal-info {
+           font-family: "BBH Bogle", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 .modal-content {
     background: #ffffffee;
     width: 80%;
@@ -397,4 +418,23 @@ body.dark #modal-nome {
     max-height: 650px;
     object-fit: contain;
   
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+    }
+    .modal-esquerda, .modal-direita {
+        width: 100%;
+    }
+    .oak-img {
+        width: 100%;
+        max-height: none;
+    }
+
+    .container h2 {
+        font-size: 60px;
+    }
 }
