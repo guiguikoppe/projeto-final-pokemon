@@ -148,6 +148,33 @@ body {
     font-weight: 600;
 }
 
+/* BOTÃO DE TEMA NO MENU MÓVEL */
+#tema-btn-mobile {
+    width: 100%;
+    padding: 10px 16px;
+    background: var(--gray);
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--text);
+    font-weight: 500;
+    display: block;
+}
+
+#tema-btn-mobile:hover {
+    background: var(--accent);
+    color: var(--white);
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 840px) {
+    .tema-btn {
+        display: none;
+    }
+}
+
 /* ==================================================
    BANNER
 ================================================== */

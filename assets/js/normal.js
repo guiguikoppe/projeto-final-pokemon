@@ -117,7 +117,42 @@ if (menuBtn) {
   });
 }
 
-// ======== ELEMENTOS DO MODAL ========
+// ======== BOTÕES DE TEMA (Desktop + Mobile) =========
+const temaBtnDesktop = document.getElementById("tema-btn");
+const temaBtnMobile = document.getElementById("tema-btn-mobile");
+
+function atualizarBotaoTema() {
+  const modoEscuro = document.body.classList.contains("dark");
+  const texto = modoEscuro ? "☀️ Modo Claro" : "🌙 Modo Escuro";
+  
+  if (temaBtnDesktop) temaBtnDesktop.textContent = texto;
+  if (temaBtnMobile) temaBtnMobile.textContent = texto;
+}
+
+function toggleTema() {
+  document.body.classList.toggle("dark");
+  const modoEscuro = document.body.classList.contains("dark");
+  localStorage.setItem("tema", modoEscuro ? "escuro" : "claro");
+  atualizarBotaoTema();
+}
+
+// Verificar tema salvo
+if (localStorage.getItem("tema") === "escuro") {
+  document.body.classList.add("dark");
+}
+
+atualizarBotaoTema();
+
+// Adicionar listeners aos botões
+if (temaBtnDesktop) {
+  temaBtnDesktop.addEventListener("click", toggleTema);
+}
+
+if (temaBtnMobile) {
+  temaBtnMobile.addEventListener("click", toggleTema);
+}
+
+async function criarCards() {
 const modal = document.getElementById("modal");
 const fecharModal = document.getElementById("fechar");
 const modalImg = document.getElementById("modal-img");
@@ -203,29 +238,4 @@ fecharModal.addEventListener("click", () => (modal.style.display = "none"));
 
 modal.addEventListener("click", (e) => {
   if (e.target === modal) modal.style.display = "none";
-});
-
-//Não mexer abaixo é apenas o codigo de claro e escuro---->
-// botão
-const botao = document.getElementById("tema-btn");
-
-// verifica se o usuário já escolheu um tema antes
-if (localStorage.getItem("tema") === "escuro") {
-  document.body.classList.add("dark");
-  botao.textContent = "☀️ Modo Claro";
-}
-
-// clique para trocar o tema
-botao.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-
-  const modoEscuroAtivo = document.body.classList.contains("dark");
-
-  if (modoEscuroAtivo) {
-    botao.textContent = "☀️ Modo Claro";
-    localStorage.setItem("tema", "escuro");
-  } else {
-    botao.textContent = "🌙 Modo Escuro";
-    localStorage.setItem("tema", "claro");
-  }
 });
