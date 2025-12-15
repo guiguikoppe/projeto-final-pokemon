@@ -436,6 +436,10 @@ body.dark #modal-nome {
         width: 30%;
         max-height: none;
     }
+
+    .pokemon-img {
+        width: 40%;
+    }
 }
 
 @media (max-width: 480px) {
