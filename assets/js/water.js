@@ -168,7 +168,6 @@ function abrirModal(det) {
 
   const attackStat = det.stats.find((stat) => stat.stat.name === "attack");
   const defenseStat = det.stats.find((stat) => stat.stat.name === "defense");
-  const speedStat = det.stats.find((stat) => stat.stat.name === "speed");
 
   modalInfo.innerHTML = `
     <div class="modal-stat">
@@ -216,20 +215,6 @@ function abrirModal(det) {
         : ""
     }
 
-    ${
-      speedStat
-        ? `<div class="modal-barra">
-      <span>Velocidade</span>
-      <div class="progress-modal">
-        <div class="fill-modal" style="width: ${
-          (speedStat.base_stat / 255) * 100
-        }%;">
-          ${speedStat.base_stat}
-        </div>
-      </div>
-    </div>`
-        : ""
-    }
   `;
 }
 
