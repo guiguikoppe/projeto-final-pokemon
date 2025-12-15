@@ -11,6 +11,42 @@ body {
     background-size: cover;
     background-attachment: fixed;
 }
+/* ======================= MODO ESCURO ======================= */
+body.dark {
+    --bg: #1a1a1a;
+    --white: #222222;
+    --black: #ffffff;
+    --gray: #333333;
+    --gray-light: #252525;
+    --text: #e8e8e8;
+}
+
+
+body.dark .card {
+    background: var(--white);
+}
+
+
+body.dark .modal-content {
+    background: var(--white);
+    color: var(--text);
+}
+
+
+body.dark .modal-stat {
+    background: rgba(100, 100, 100, 0.4);
+}
+
+
+body.dark .modal-stat p {
+    color: var(--text);
+}
+
+
+body.dark #modal-nome {
+    color: var(--text);
+}
+
 
 /* ---------------- CONTAINER DE CARDS ---------------- */
 .container {
@@ -21,11 +57,12 @@ body {
 .container h2 {
     font-size: 100px;
     font-weight: 900;
-    background: linear-gradient(90deg, #000000,#a9a9a9,#dedcdc, #ffffff);
+    background: linear-gradient(90deg, #dcdada,#c5c3c3,#fbfbfb, #ffffff);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
      font-family: "Jersey 20", sans-serif;
+     
 }
 
 .grupo-tipo {
@@ -35,7 +72,6 @@ body {
     gap: 35px;
     justify-items: center;
 }
-
 
 
 /* ----------------------------------------------- */

@@ -33,7 +33,7 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border-bottom: 2px solid var(--gray);
+    border-bottom: 3px solid var(--black);
     top: 0;
     z-index: 1000;
 }
@@ -123,6 +123,33 @@ body {
     background: var(--gray);
     font-weight: 600;
 }
+
+/* CONTROLES DO HEADER (TEMA + MENU) */
+.header-controls {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+
+.tema-btn {
+    padding: 10px 16px;
+    background: var(--gray);
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--text);
+    font-weight: 500;
+}
+
+
+.tema-btn:hover {
+    background: var(--accent);
+    color: var(--white);
+}
+
 
 /* ================================================
    BANNER
