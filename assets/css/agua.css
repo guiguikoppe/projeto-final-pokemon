@@ -4,6 +4,41 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
+body.dark {
+    --bg: #1a1a1a;
+    --white: #222222;
+    --black: #ffffff;
+    --gray: #333333;
+    --gray-light: #252525;
+    --text: #e8e8e8;
+}
+
+
+body.dark .card {
+    background: var(--white);
+}
+
+
+body.dark .modal-content {
+    background: var(--white);
+    color: var(--text);
+}
+
+
+body.dark .modal-stat {
+    background: rgba(100, 100, 100, 0.4);
+}
+
+
+body.dark .modal-stat p {
+    color: var(--text);
+}
+
+
+body.dark #modal-nome {
+    color: var(--text);
+}
+
 
 /* ---------------- BACKGROUND GERAL ---------------- */
 body {
@@ -21,7 +56,7 @@ body {
 .container h2 {
     font-size: 100px;
     font-weight: 900;
-    background: linear-gradient(90deg, #023f89,#0259c4,#89bdfd,#6eafff);
+    background: linear-gradient(90deg, #0060d5,#0d7aff,#64b4fa,#c6deff);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
