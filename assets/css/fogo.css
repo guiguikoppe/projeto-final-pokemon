@@ -398,3 +398,33 @@ body {
     object-fit: contain;
   
 }
+
+@media (max-width: 768px) {
+    .modal-content {
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+    }
+    .modal-esquerda, .modal-direita {
+        width: 100%;
+    }
+ .container h2 {
+        font-size: 60px;
+    }
+     .oak-img {
+        width: 30%;
+        max-height: none;
+    }
+
+    .pokemon-img {
+        width: 40%;
+    }
+}
+
+@media (max-width: 480px) {
+
+  .oak-img {
+        width: 30%;
+        max-height: none;
+    }
+}   
