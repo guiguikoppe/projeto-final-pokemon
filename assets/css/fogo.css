@@ -86,15 +86,19 @@ body {
     position: relative;
     overflow: hidden;
     z-index: 1; /* card acima */
-    max-width: 350px;
+    text-align: left;
 }
-
+.card h4{
+    margin-left: 5%;
+}
 .card h3 {
     text-transform: uppercase;
     font-weight: 700;   /* bold */
-    font-size: 24px;
+    font-size: 40px;
     letter-spacing: 0.6px;
     margin: 8px 0;
+      font-family: "Jersey 20", sans-serif;
+      text-align: center;
 }
 /* BORDA HOLOGRÁFICA PERMANENTE */
 .card::before {
