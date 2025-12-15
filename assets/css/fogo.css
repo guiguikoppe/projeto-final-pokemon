@@ -43,9 +43,13 @@ body.dark #modal-nome {
 
 /* ---------------- BACKGROUND GERAL ---------------- */
 body {
-    background-image: url("../imgs/incendio.png");
-    background-size: cover;
-    background-attachment: fixed;
+ background: linear-gradient(
+  145deg,
+  #fff3e0 0%,  
+  #ffb74d 35%,  
+  #e65100 75%,  
+  #3b0a00 100%  
+);
 }
 
 /* ---------------- CONTAINER DE CARDS ---------------- */
